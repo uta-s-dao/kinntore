@@ -1,2 +1,0 @@
-# kinntore
-筋トレSNS
