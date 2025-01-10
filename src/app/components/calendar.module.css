@@ -1,0 +1,26 @@
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7列で週ごとに並べる */
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.dayHeader {
+  font-weight: bold;
+  text-align: center;
+}
+
+.dayCell {
+  background-color: #f3f3f3;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dayCell:hover {
+  background-color: #e0e0e0;
+}
