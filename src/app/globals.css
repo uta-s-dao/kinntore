@@ -12,7 +12,7 @@
 .navbar {
   display: flex;
   justify-content: space-around;
-  position: fixed;
+  
   bottom: 0;
   width: 100%;
   background-color: #5c5959d9;
@@ -30,3 +30,4 @@
 .nav-link:hover {
   color: #fca311; /* ホバー時にアクセントカラーに変更 */
 }
+

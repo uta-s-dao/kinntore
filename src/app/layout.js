@@ -9,8 +9,10 @@ export default function RootLayout({ children }) {
       <head>
         <title>GEEM</title>
       </head>
-      <body>
+      <body className="body">
+        <div>
         {children}
+        </div>
         <nav className='navbar'>
           <Link href='/' className='nav-link'>
             Home
