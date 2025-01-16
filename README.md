@@ -21,6 +21,16 @@ account: トレーニングを記録できるようにする
 ブラウザで
 https://fit-share-kjbk.vercel.app/
 を開きます
+## プロジェクトの概要
+プロジェクト名：FitShare
+筋トレした写真をアップロードするSNS
+主に4つのページからなる。
+Home:　ユーザーの投稿した写真が見れる
+plans:　カレンダーに筋トレの予約を入れることができる
+record:　友達のスコアを見ることができる
+account:　トレーニングを記録できるようにする
 
+
+https://github.com/user-attachments/assets/6a716586-4cc0-4eef-a648-b5a1145ef287
 
 
