@@ -9,8 +9,9 @@ export default function RootLayout({ children }) {
       <head>
         <title>GEEM</title>
       </head>
-      <body className="body">
-        <div>
+      <body className="h-screen">
+      <div className="flex flex-col h-screen">
+        <div className="flex-grow">
         {children}
         </div>
         <nav className='navbar'>
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
             account
           </Link>
         </nav>
+        </div>
       </body>
     </html>
   );

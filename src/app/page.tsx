@@ -94,6 +94,7 @@ export default function HomePage() {
         <a href='./post' className={styles.navLink}>
           Post
         </a>
+        <a href='./post1'>post1</a>
       </nav>
       <div className={styles.postList1}>
         <FileList></FileList>
