@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 //更新
@@ -18,7 +18,7 @@ export async function PATCH(
       completed: !completed,
     },
   });
-  return Response.json(response);
+  return NextResponse.json(response);
 }
 
 export async function DELETE(
@@ -32,5 +32,5 @@ export async function DELETE(
       id,
     },
   });
-  return Response.json(response);
+  return NextResponse.json(response);
 }
