@@ -20,20 +20,35 @@ export async function PATCH(
   });
   return NextResponse.json(response);
 }
-
 export async function DELETE(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    const todo = await prisma.todo.delete({
+    const id = Number(params.id);
+
+    if (isNaN(id)) {
+      return NextResponse.json({ error: "Invalid ID format" }, { status: 400 });
+    }
+
+    const response = await prisma.todo.delete({
       where: {
-        id: parseInt(params.id),
+        id,
       },
     });
-    return Response.json(todo);
+
+    if (!response) {
+      return NextResponse.json({ error: "Todo not found" }, { status: 404 });
+    }
+
+    return NextResponse.json(response, { status: 200 });
   } catch (error) {
-    console.error("Delete error:", error);
-    return Response.json({ error: "Failed to delete todo" }, { status: 500 });
+    console.error("Delete todo error:", error);
+    return NextResponse.json(
+      { error: "Failed to delete todo" },
+      { status: 500 }
+    );
+  } finally {
+    await prisma.$disconnect();
   }
 }
