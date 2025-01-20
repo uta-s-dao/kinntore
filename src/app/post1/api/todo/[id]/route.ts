@@ -27,28 +27,18 @@ export async function DELETE(
   try {
     const id = Number(params.id);
 
-    if (isNaN(id)) {
-      return NextResponse.json({ error: "Invalid ID format" }, { status: 400 });
-    }
-
     const response = await prisma.todo.delete({
       where: {
         id,
       },
     });
 
-    if (!response) {
-      return NextResponse.json({ error: "Todo not found" }, { status: 404 });
-    }
-
-    return NextResponse.json(response, { status: 200 });
+    return NextResponse.json(response);
   } catch (error) {
     console.error("Delete todo error:", error);
     return NextResponse.json(
       { error: "Failed to delete todo" },
       { status: 500 }
     );
-  } finally {
-    await prisma.$disconnect();
   }
 }
