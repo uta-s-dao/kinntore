@@ -3,7 +3,7 @@ import { Todo } from "@prisma/client";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [inputValue, setInputValue] = useState<string | null>(null);
+  const [inputValue, setInputValue] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
 
   useEffect(() => {
@@ -77,6 +77,7 @@ export default function Home() {
         onSubmit={async (e) => {
           e.preventDefault();
           if (!inputValue) alert("入力してください");
+
           const response = await fetch(
             `${process.env.NEXT_PUBLIC_API_URL}/todo`,
             {
@@ -90,14 +91,14 @@ export default function Home() {
           const newTodo = await response.json();
 
           setTodos([...todos, newTodo]);
-          setInputValue(null);
+          setInputValue("");
         }}
         className='flex items-center mt-4'
       >
         <input
           type='text'
           className='border border-gray-400 px-4 py-2 mr-2 rounded text-black'
-          value={inputValue || ""}
+          value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder='Todoを入力してください'
         />
